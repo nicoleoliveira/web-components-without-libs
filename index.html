@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web components - botão</title>
+    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+</head>
+<body>
+    <h1>Componentes</h1>
+    <wcp-button label="clica aqui"></wcp-button>
+    <wcp-button label="clica aqui" disabled="true"></wcp-button>
+    <wcp-button label="clica aqui 2" type="primary"></wcp-button>
+    <wcp-button label="clica aqui 2" type="primary" disabled="true"></wcp-button>
+    <wcp-button label="clica aqui 2" type="secondary"></wcp-button>
+    <wcp-button label="clica aqui 2" type="secondary" disabled="true"></wcp-button>
+    
+    <script>
+        // hide body to prevent FOUC
+        document.body.style.opacity = 0;
+        window.addEventListener('WebComponentsReady', function() {
+            console.log('ok')
+        // show body now that everything is ready
+        document.body.style.opacity = 1;
+        });
+  </script>
+    <script type="module" src="./button.js"></script>
+    <script>
+        function teste () {
+            console.log('função de fora')
+        }
+        const buttons = document.querySelectorAll('wcp-button');
+        buttons.forEach(button => button.addEventListener('clickButton', teste));
+    </script>
+</body>
+</html>
