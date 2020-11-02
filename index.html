@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web components - botão</title>
+    <style>
+        wcp-button {
+            margin: 8px;
+            display: block;
+        }
+        wcp-button.teste {
+            --button-primary-background-color: blue;
+        }
+    </style>
     <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script type="module" src="./button.js"></script>
 </head>
 <body>
     <h1>Componentes</h1>
-    <wcp-button label="clica aqui"></wcp-button>
-    <wcp-button label="clica aqui" disabled="true"></wcp-button>
-    <wcp-button label="clica aqui 2" type="primary"></wcp-button>
-    <wcp-button label="clica aqui 2" type="primary" disabled="true"></wcp-button>
-    <wcp-button label="clica aqui 2" type="secondary"></wcp-button>
-    <wcp-button label="clica aqui 2" type="secondary" disabled="true"></wcp-button>
+    <wcp-button label="default"></wcp-button>
+    <wcp-button label="default | disabled" disabled="true"></wcp-button>
+    <wcp-button label="deve ser azul" class="teste" type="primary"></wcp-button>
+    <wcp-button label="deve ser amarelo" type="primary"></wcp-button>
+    <wcp-button label="primary | disabled" type="primary" disabled="true"></wcp-button>
+    <wcp-button label="secondary" type="secondary"></wcp-button>
+    <wcp-button label="secondary | disabled" type="secondary" disabled="true"></wcp-button>
     
     <script>
         // hide body to prevent FOUC
@@ -24,7 +35,7 @@
         document.body.style.opacity = 1;
         });
   </script>
-    <script type="module" src="./button.js"></script>
+
     <script>
         function teste () {
             console.log('função de fora')
